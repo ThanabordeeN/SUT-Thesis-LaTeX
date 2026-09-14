@@ -5,12 +5,10 @@
 % select/adjust citation rules without changing page-layout rules.
 \usepackage[
   backend=biber,
-  style=authoryear,
-  sorting=nyt,
-  maxcitenames=2
+  style=apa,
+  sorting=nyt
 ]{biblatex}
 \addbibresource{references.bib}
-\setlength{\bibhang}{\SUTReferenceHang}
 
 \input{metadata}
 
@@ -51,8 +49,11 @@
 \clearpage
 \thispagestyle{plain}
 \SUTFrontMatterHeading{รายการอ้างอิง}
-\nocite{*}
+\begingroup
+\fontsize{16pt}{20pt}\selectfont
+\setlength{\bibhang}{8em}
 \printbibliography[heading=none]
+\endgroup
 
 \appendix
 \include{chapters/appendix-a}
