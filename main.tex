@@ -1,0 +1,60 @@
+%!TEX program = xelatex
+\documentclass[thai,master,fallbackfont]{sutthesis}
+
+% Bibliography formatting is deliberately kept outside the class so a program can
+% select/adjust citation rules without changing page-layout rules.
+\usepackage[
+  backend=biber,
+  style=authoryear,
+  sorting=nyt,
+  maxcitenames=2
+]{biblatex}
+\addbibresource{references.bib}
+\setlength{\bibhang}{\SUTReferenceHang}
+
+\input{metadata}
+
+\begin{document}
+
+% Cover pages. Exact 2026 Word-template spacing should be visually cross-checked
+% before final submission; the typography/margins are controlled by sutthesis.cls.
+\SUTMakeThaiCover
+\SUTMakeEnglishCover
+
+% Committee/signature page is intentionally editable because composition varies.
+\input{frontmatter/approval}
+
+\frontmatter
+\input{frontmatter/abstract-th}
+\input{frontmatter/abstract-en}
+\input{frontmatter/acknowledgements}
+
+\clearpage
+\thispagestyle{plain}
+\tableofcontents
+
+\clearpage
+\thispagestyle{plain}
+\listoftables
+
+\clearpage
+\thispagestyle{plain}
+\listoffigures
+
+\mainmatter
+\include{chapters/chapter01}
+\include{chapters/chapter02}
+\include{chapters/chapter03}
+\include{chapters/chapter04}
+\include{chapters/chapter05}
+
+\clearpage
+\thispagestyle{plain}
+\SUTFrontMatterHeading{รายการอ้างอิง}
+\nocite{*}
+\printbibliography[heading=none]
+
+\appendix
+\include{chapters/appendix-a}
+
+\end{document}
