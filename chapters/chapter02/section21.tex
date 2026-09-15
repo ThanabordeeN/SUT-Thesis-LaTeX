@@ -31,29 +31,28 @@
 โดยสรุป วิธี Rod and Level มีความแม่นยำสูงและเหมาะสำหรับใช้เป็นวิธีอ้างอิง แต่มีข้อจำกัดด้านเวลาและแรงงาน วิธี Profilograph เหมาะสำหรับการตรวจรับงานก่อสร้างและการตรวจหาความผิดปกติเฉพาะจุด ส่วนวิธี Inertial Profiler เหมาะสำหรับการสำรวจถนนในระดับโครงข่าย แต่ยังมีข้อจำกัดด้านต้นทุน การสอบเทียบ และความต้องการบุคลากรเฉพาะทาง ข้อจำกัดเหล่านี้เป็นเหตุผลสำคัญที่ทำให้การพัฒนาแนวทางการตรวจสอบสภาพถนนด้วยสมาร์ตโฟนและเซ็นเซอร์ต้นทุนต่ำมีความสำคัญต่อการขยายผลในสภาพแวดล้อมจริง ตารางที่ 2.1 สรุปการเปรียบเทียบวิธีการดั้งเดิมทั้ง 3 ประเภทในด้านหลักการวัด ความแม่นยำ ความเร็วสำรวจ และต้นทุน
 
 \begingroup
-\fontsize{11pt}{13pt}\selectfont
-\setlength{\tabcolsep}{2pt}
-\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.20}
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.09\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}}
-\caption{สรุปการเปรียบเทียบวิธีการดั้งเดิมทั้ง 3 ประเภทในด้านหลักการวัด ความแม่นยำ ความเร็วสำรวจ และต้นทุน}\label{tab:traditional-road-methods}\\
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}}
+\caption{สรุปการเปรียบเทียบวิธีการดั้งเดิมในการตรวจสอบสภาพผิวถนน}\label{tab:traditional-road-methods}\\
 \toprule
-\textbf{วิธีการ} & \textbf{หลักการวัด} & \textbf{ความแม่นยำ} & \textbf{ความเร็วสำรวจ} & \textbf{ต้นทุน} & \textbf{การใช้งานหลัก} \\
+\textbf{วิธีการ} & \textbf{หลักการวัดและความแม่นยำ} & \textbf{ความเร็วและต้นทุน} & \textbf{การใช้งานหลักและข้อสังเกต} \\
 \midrule
 \endfirsthead
-\multicolumn{6}{l}{\textit{ตารางที่ \thetable\ (ต่อ)}}\\
+\SUTContinuedTableHeader{4}
 \toprule
-\textbf{วิธีการ} & \textbf{หลักการวัด} & \textbf{ความแม่นยำ} & \textbf{ความเร็วสำรวจ} & \textbf{ต้นทุน} & \textbf{การใช้งานหลัก} \\
+\textbf{วิธีการ} & \textbf{หลักการวัดและความแม่นยำ} & \textbf{ความเร็วและต้นทุน} & \textbf{การใช้งานหลักและข้อสังเกต} \\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-Rod and Level & Static surveying ทีละจุด ทุก 0.3 m & ASTM Class I; resolution 0.125–2.0 mm & เดิน (\textless{}10 วินาที/จุด) & ต่ำ (แต่ค่าแรงสูง) & Calibration อุปกรณ์อื่น, งานวิจัยระยะสั้น \\
-Profilograph & Rolling-reference beam 25 ฟุต & Profile Index (PI) เท่านั้น; ไม่ใช่ true IRI & เดิน \textasciitilde{}2–3 mph & ต่ำ–ปานกลาง & ตรวจสอบคุณภาพงานก่อสร้าง, legacy PI specs \\
-Inertial Profiler & Accelerometer + laser + DMI & IRI ratio 0.95–1.05 เทียบ reference; repeatability สูง & 80–88 km/h & สูง & Network-level IRI survey, การบริหารสินทรัพย์ \\
+Rod and Level & Static surveying ทีละจุด ทุก 0.3 m; ASTM Class I; resolution 0.125–2.0 mm & เดิน (\textless{}10 วินาที/จุด); ต้นทุนอุปกรณ์ต่ำแต่ใช้แรงงานสูง & ใช้สอบเทียบอุปกรณ์อื่นและงานวิจัยระยะสั้น; ไม่เหมาะกับการสำรวจโครงข่ายขนาดใหญ่ \\
+Profilograph & Rolling-reference beam ประมาณ 25 ฟุต; รายงาน Profile Index (PI) และไม่ใช่ true IRI & ประมาณ 2–3 mph; ต้นทุนต่ำถึงปานกลาง & ใช้ตรวจสอบคุณภาพงานก่อสร้างและ legacy PI specifications; ไม่เหมาะกับ network-level IRI survey \\
+Inertial Profiler & Accelerometer + laser + DMI; IRI ratio 0.95–1.05 เทียบ reference และมี repeatability สูง & 80–88 km/h; ต้นทุนสูง & เหมาะกับ network-level IRI survey และการบริหารสินทรัพย์ แต่ต้องสอบเทียบและใช้บุคลากรเฉพาะทาง \\
 \end{longtable}
-\noindent\textit{หมายเหตุ:} ดัดแปลงจาก \textcite{fhwa2016} และ \textcite{zang2018}
 \endgroup
+\SUTTableNote{ดัดแปลงจาก \fullcite{fhwa2016} และ \fullcite{zang2018}}
 
 โดยสรุป วิธีการวัดโปรไฟล์ผิวถนนแบบดั้งเดิมมีข้อจำกัดร่วมกันด้านต้นทุน ความซับซ้อนของอุปกรณ์ ความต้องการบุคลากรที่มีความชำนาญ และความสามารถในการขยายผลสู่การสำรวจถนนในวงกว้าง โดยเฉพาะในประเทศกำลังพัฒนาหรือพื้นที่ที่มีข้อจำกัดด้านงบประมาณ วิธีการที่ต้องอาศัยเครื่องมือเฉพาะทาง เช่น เครื่องวัดโปรไฟล์ผิวถนนแบบเฉื่อย จึงอาจไม่เหมาะต่อการติดตามสภาพถนนอย่างต่อเนื่องในระยะยาว งานทบทวนของ \textcite{alqaydi2024} ชี้ให้เห็นว่า แนวทางการใช้สมาร์ตโฟนร่วมกับเซ็นเซอร์ภายในอุปกรณ์เป็นทางเลือกที่มีต้นทุนต่ำและสามารถขยายผลได้มากกว่าวิธีสำรวจถนนแบบดั้งเดิม
