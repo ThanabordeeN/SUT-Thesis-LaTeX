@@ -15,30 +15,30 @@
 งานวิจัยกลุ่มล่าสุดเริ่มประยุกต์ใช้การเรียนรู้เชิงลึก โดยรับสัญญาณจากหน่วยวัดความเฉื่อยเป็นข้อมูลนำเข้าโดยตรง \textcite{yu2024} ใช้สถาปัตยกรรมโครงข่ายประสาทเทียมแบบคอนโวลูชัน (Convolutional Neural Network: CNN) ร่วมกับโครงข่ายหน่วยความจำระยะสั้นแบบยาว (Long Short-Term Memory: LSTM) เพื่อจำแนกพื้นผิวถนนของยานพาหนะไฟฟ้าในประเทศจีน งานในกลุ่มนี้แสดงให้เห็นว่าการเรียนรู้เชิงลึกสามารถเรียนรู้รูปแบบจากสัญญาณดิบได้โดยลดการพึ่งพาการออกแบบคุณลักษณะด้วยมือ อย่างไรก็ตาม งานวิจัยแต่ละชิ้นยังมีความแตกต่างด้านบริบทพื้นที่ศึกษา ประเภทยานพาหนะ อุปกรณ์ที่ใช้เก็บข้อมูล ตำแหน่งการติดตั้งสมาร์ตโฟน และระเบียบวิธีการกำหนดป้ายกำกับ อีกทั้งหลายงานไม่ได้เปรียบเทียบแบบจำลองหลายรูปแบบภายใต้ชุดข้อมูลและกระบวนการประเมินเดียวกัน จึงยังยากต่อการสรุปว่าแบบจำลองใดเหมาะสมที่สุดสำหรับการจำแนกสภาพถนนในสภาพแวดล้อมจริง งานวิจัยที่เกี่ยวข้องสรุปไว้ในตารางที่ 2.2
 
 \begingroup
-\fontsize{11pt}{13pt}\selectfont
-\setlength{\tabcolsep}{2pt}
-\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.20}
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
-\begin{longtable}{>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}}
 \caption{สรุปงานวิจัยด้านการตรวจสอบสภาพถนนด้วยสมาร์ตโฟน}\label{tab:smartphone-road-research}\\
 \toprule
-\textbf{ผู้วิจัย (ปี)} & \textbf{Method} & \textbf{Dataset} & \textbf{Classes} & \textbf{Accuracy/F1} & \textbf{Dataset type} \\
+\textbf{ผู้วิจัย (ปี)} & \textbf{วิธีการ} & \textbf{ชุดข้อมูลและบริบท} & \textbf{ผลลัพธ์และลักษณะชุดข้อมูล} \\
 \midrule
 \endfirsthead
-\multicolumn{6}{l}{\textit{ตารางที่ \thetable\ (ต่อ)}}\\
+\SUTContinuedTableHeader{4}
 \toprule
-\textbf{ผู้วิจัย (ปี)} & \textbf{Method} & \textbf{Dataset} & \textbf{Classes} & \textbf{Accuracy/F1} & \textbf{Dataset type} \\
+\textbf{ผู้วิจัย (ปี)} & \textbf{วิธีการ} & \textbf{ชุดข้อมูลและบริบท} & \textbf{ผลลัพธ์และลักษณะชุดข้อมูล} \\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-\textcite{mednis2011} & Threshold-based (Z-THRESH, Z-DIFF, G-ZERO) & Private (Latvia) & 2 (Normal, Pothole) & TPR 90\% & Real-world field \\
-\textcite{perttunen2011} & FFT Spectral Energy + Threshold & Private (Finland) & Road roughness levels & n.r. & Real-world field \\
-\textcite{gonzalez2017} & Bag-of-Words (BoW) + ML classifiers & Public (Mexico, Chihuahua) & 5 (Pothole, Metal Bump, Asphalt Bump, Worn-out, Regular) & n.r. & Real-world field \\
-\textcite{silva2018} & System evaluation (real-world deployment analysis) & Private (Portugal, controlled + real-world) & Road anomalies & Performance degradation documented: controlled → real-world & Real-world field \\
-\textcite{basavaraju2020} & SVM, Decision Tree, Neural Network & Private (USA) & 3 (Smooth, Pothole, Crack) & Acc ≈ 92\% (NN) & Real-world field \\
-\textcite{chibani2022} & DSW vs SSW + ML classifiers (SVM, DT, GB, RF, NB, NN, KNN) & Pothole Lab + Carsim (benchmark/generated) & Road anomalies & DSW outperforms SSW; KNN F1: 0.718→0.862, RF F1: 0.663→0.832 & Benchmark / Generated \\
-\textcite{yu2024} & CNN-LSTM & Private (China, EBV) & ≥ 2 surface types & n.r. & Real-world field \\
+\textcite{mednis2011} & Threshold-based: Z-THRESH, Z-DIFF, G-ZERO & Private dataset, Latvia; 2 classes: Normal และ Pothole & TPR 90\%; real-world field \\
+\textcite{perttunen2011} & FFT Spectral Energy + Threshold & Private dataset, Finland; road roughness levels & ไม่รายงานค่า Accuracy/F1; real-world field \\
+\textcite{gonzalez2017} & Bag-of-Words (BoW) + ML classifiers & Public dataset, Chihuahua, Mexico; 5 classes: Pothole, Metal Bump, Asphalt Bump, Worn-out และ Regular & ไม่รายงานค่า Accuracy/F1 ในตารางสรุปนี้; real-world field \\
+\textcite{silva2018} & System evaluation under controlled and real-world deployment & Private dataset, Portugal; road anomalies & รายงาน performance degradation จาก controlled ไปสู่ real-world; real-world field \\
+\textcite{basavaraju2020} & SVM, Decision Tree และ Neural Network & Private dataset, USA; 3 classes: Smooth, Pothole และ Crack & Accuracy ประมาณ 92\% สำหรับ Neural Network; real-world field \\
+\textcite{chibani2022} & DSW เทียบ SSW + ML classifiers: SVM, DT, GB, RF, NB, NN และ KNN & Pothole Lab + CarSim; road anomalies; benchmark/generated data & DSW ดีกว่า SSW; KNN F1: 0.718→0.862 และ RF F1: 0.663→0.832 \\
+\textcite{yu2024} & CNN-LSTM & Private dataset, China, electric balance vehicle; อย่างน้อย 2 surface types & ไม่รายงานค่า Accuracy/F1 ในตารางสรุปนี้; real-world field \\
 \end{longtable}
 \endgroup
+\SUTTableNote{สรุปโดยผู้วิจัยจากเอกสารที่อ้างอิงในแต่ละแถว}
