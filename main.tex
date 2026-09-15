@@ -10,6 +10,9 @@
 ]{biblatex}
 \addbibresource{references.bib}
 
+% Tables, figures, captions, notes, and conditional lists.
+\usepackage{sutcontent}
+
 \input{metadata}
 
 \begin{document}
@@ -31,13 +34,10 @@
 \thispagestyle{plain}
 \tableofcontents
 
-\clearpage
-\thispagestyle{plain}
-\listoftables
-
-\clearpage
-\thispagestyle{plain}
-\listoffigures
+% These lists are emitted only when the compiled thesis actually contains entries.
+% latexmk resolves the presence flags automatically over its normal reruns.
+\SUTListOfTablesIfPresent
+\SUTListOfFiguresIfPresent
 
 \mainmatter
 \include{chapters/chapter01}
