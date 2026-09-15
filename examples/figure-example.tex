@@ -1,0 +1,16 @@
+% Example only -- not included by main.tex.
+% Replace the image path, caption, label, and source with thesis-specific content.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figures/your-figure-file.pdf}
+  \caption{คำอธิบายรูปภาพ}
+  \label{fig:example}
+  % For an adapted/reproduced figure, give the source below the caption.
+  % A full BibLaTeX citation can be used to avoid incomplete source metadata.
+  \SUTFigureNote{ดัดแปลงจาก \fullcite{your-bib-key}}
+\end{figure}
+
+% Refer to the figure in the body with \ref{fig:example}.
+% The caption is placed below the image, uses "รูปที่ <chapter>.<number>",
+% and the empty List of Figures page is suppressed until a real figure exists.
