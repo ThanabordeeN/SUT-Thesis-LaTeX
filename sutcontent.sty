@@ -1,0 +1,100 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sutcontent}[2026/09/15 v0.2 SUT table and figure formatting]
+
+% Content-format helpers layered on top of sutthesis.cls.
+% These rules cover tables, figures, captions, source notes, and optional lists.
+\RequirePackage{caption}
+\RequirePackage{etoolbox}
+
+% SUT examples use normal-weight labels without a colon after the number.
+\captionsetup{
+  font={normalfont},
+  labelfont={normalfont},
+  labelsep=space,
+  justification=centering,
+  singlelinecheck=false
+}
+\captionsetup[table]{position=top,skip=0.5\baselineskip}
+\captionsetup[figure]{position=bottom,skip=0.5\baselineskip}
+
+% Long-table captions should use the same usable width as thesis text.
+\setlength{\LTcapwidth}{\textwidth}
+
+% Notes and source statements stay at the 16 pt thesis body size.
+\newcommand{\SUTTableNote}[1]{%
+  \par\vspace{0.25\baselineskip}%
+  \noindent\underline{หมายเหตุ}\hspace{0.5em}#1\par
+}
+\newcommand{\SUTFigureNote}[1]{%
+  \par\vspace{0.25\baselineskip}%
+  \noindent\underline{หมายเหตุ}\hspace{0.5em}#1\par
+}
+
+% Standard continuation marker for long tables.
+\newcommand{\SUTContinuedTableHeader}[1]{%
+  \multicolumn{#1}{l}{\tablename~\thetable\ (ต่อ)}\\
+}
+
+\makeatletter
+% Persist table/figure presence through the .aux file. This allows the front
+% matter to omit empty lists while latexmk still discovers entries automatically.
+\newif\ifsut@hastables
+\newif\ifsut@hasfigures
+\sut@hastablesfalse
+\sut@hasfiguresfalse
+\newcommand{\SUTMarkTablesPresent}{\global\sut@hastablestrue}
+\newcommand{\SUTMarkFiguresPresent}{\global\sut@hasfigurestrue}
+
+% Enforce the SUT 16 pt body size inside table/figure environments. This also
+% protects future chapters from accidentally shrinking tables for convenience.
+\AtBeginEnvironment{table}{%
+  \fontsize{16pt}{20pt}\selectfont
+  \protected@write\@auxout{}{\string\SUTMarkTablesPresent}%
+}
+\AtBeginEnvironment{longtable}{%
+  \fontsize{16pt}{20pt}\selectfont
+  \protected@write\@auxout{}{\string\SUTMarkTablesPresent}%
+}
+\AtBeginEnvironment{figure}{%
+  \fontsize{16pt}{20pt}\selectfont
+  \protected@write\@auxout{}{\string\SUTMarkFiguresPresent}%
+}
+
+\newcommand{\SUT@ListColumnHeader}[1]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    #1 & หน้า
+  \end{tabular*}\par
+  \vspace{0.5\baselineskip}%
+}
+
+\newcommand{\SUTListOfTables}{%
+  \SUTFrontMatterHeading{\listtablename}%
+  \SUT@ListColumnHeader{ตารางที่}%
+  \@starttoc{lot}%
+}
+
+\newcommand{\SUTListOfFigures}{%
+  \SUTFrontMatterHeading{\listfigurename}%
+  \SUT@ListColumnHeader{รูปที่}%
+  \@starttoc{lof}%
+}
+
+\newcommand{\SUTListOfTablesIfPresent}{%
+  \ifsut@hastables
+    \SUTListOfTables
+  \else
+    % Open the list stream invisibly so the next latexmk pass can discover it.
+    \begingroup\@starttoc{lot}\endgroup
+  \fi
+}
+
+\newcommand{\SUTListOfFiguresIfPresent}{%
+  \ifsut@hasfigures
+    \SUTListOfFigures
+  \else
+    % Do not emit an empty "สารบัญรูป" page.
+    \begingroup\@starttoc{lof}\endgroup
+  \fi
+}
+\makeatother
